@@ -1,0 +1,21 @@
+---
+- name: Fetch file from server1
+  hosts: 172.31.17.249
+  tasks:
+    - name: Fetch file
+      fetch:
+        src: file1
+        dest: /tmp
+- name: Copy file to server2
+  hosts: 172.31.20.78
+  tasks:
+    - name: Pause for 20 seconds
+      pause:
+        seconds: 20
+
+    - name: Copy file
+      copy:
+        src: /tmp/172.31.17.249/file1
+        dest: /home/ubuntu
+...
+

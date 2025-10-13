@@ -1,0 +1,20 @@
+---
+- name: Create user and clone a remote git repo into users home dir and change persmissions
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: Anusha
+        password: intelliqit
+        home: /tmp/Anusha
+    - name: Clone a remote github repo
+      git:
+        repo: https://github.com/IntelliqDevops/maven.git
+        dest: /tmp/Anusha/mygit
+    - name: Change permissions of the file that we downloaded from github
+      file:
+        name: /tmp/Anusha/mygit
+        mode: 750
+...
