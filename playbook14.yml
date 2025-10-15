@@ -1,0 +1,9 @@
+---
+- name: Using host scope variables
+  hosts: webserver
+  tasks:
+    - name: Create file
+      file:
+        name: "{{d}}"
+        state: "{{e}}"
+...
