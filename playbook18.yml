@@ -16,7 +16,7 @@
         dest: "{{item.b}}"
         owner: "{{item.c}}"
         group: "{{item.d}}"
-      with_items:
+      loop:
         - {a: /etc/passwd,b: /tmp/Ramesh,c: Ramesh,d: Rajesh}
         - {a: /etc/group,b: /home/Rajesh,c: Rajesh,d: Ramesh}
 ... 
